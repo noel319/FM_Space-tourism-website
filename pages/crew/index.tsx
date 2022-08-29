@@ -2,7 +2,7 @@ import { type MouseEventHandler, useState } from 'react'
 import cn from 'classnames'
 import styles from './Crew.module.css'
 import utilsStyles from '@/styles/utils.module.css'
-import type { NextPageWithTitle } from '../_app'
+import type { NextPageWithMeta } from '../_app'
 import Background from '@/components/background'
 import CrewCard from '@/components/crewCard'
 import useSpacetourismData from '@/hooks/useSpaceTourismData'
@@ -24,7 +24,7 @@ const crewmates = [
   'Anousheh Ansari',
 ]
 
-const Crew: NextPageWithTitle = () => {
+const Crew: NextPageWithMeta = () => {
   const [currentCrewmate, setCurrentCrewmate] =
     useState<CrewStates['currentCrewmate']>('Douglas Hurley')
 
@@ -127,6 +127,7 @@ const Crew: NextPageWithTitle = () => {
 }
 
 Crew.title = 'Crew'
+Crew.pageName = 'crew'
 
 function confirmCrewmateType(crewmate: string): crewmate is Crewmate {
   return crewmates.includes(crewmate)

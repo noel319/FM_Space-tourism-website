@@ -37,7 +37,7 @@ function Nav({ tab }: { tab: Tab }) {
   useEffect(() => {
     const isVertical = window.innerWidth < 768
     updatePosition(currentTab, isVertical ? 'vertical' : 'horizontal')
-  }, [tab])
+  }, [tab, updatePosition])
 
   return (
     <>

@@ -2,7 +2,7 @@ import { useState, type MouseEventHandler } from 'react'
 import cn from 'classnames'
 import styles from './Technology.module.css'
 import utilsStyles from '@/styles/utils.module.css'
-import { NextPageWithTitle } from '../_app'
+import { NextPageWithMeta } from '../_app'
 import Background from '@/components/background'
 import TechnologyCard from '@/components/technologyCard'
 import useSpacetourismData from '@/hooks/useSpaceTourismData'
@@ -15,7 +15,7 @@ type TechnologyStates = {
 
 const technologys = ['Launch vehicle', 'Spaceport', 'Space capsule']
 
-const Technology: NextPageWithTitle = () => {
+const Technology: NextPageWithMeta = () => {
   const [currentTechnology, setCurrentTechnology] =
     useState<TechnologyStates['currentTechnology']>('Launch vehicle')
 
@@ -120,6 +120,7 @@ const Technology: NextPageWithTitle = () => {
 }
 
 Technology.title = 'Technology'
+Technology.pageName = 'technology'
 
 function confirmTechnologyType(name: string): name is TechnologyNames {
   return technologys.includes(name)

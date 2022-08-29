@@ -1,10 +1,10 @@
 import cn from 'classnames'
 import styles from '@/styles/Home.module.css'
 import utilsStyles from '@/styles/utils.module.css'
-import type { NextPageWithTitle } from './_app'
+import type { NextPageWithMeta } from './_app'
 import Background from '@/components/background'
 
-const Home: NextPageWithTitle = () => {
+const Home: NextPageWithMeta = () => {
   return (
     <>
       <Background
@@ -35,5 +35,7 @@ const Home: NextPageWithTitle = () => {
     </>
   )
 }
+
+Home.pageName = 'home'
 
 export default Home

@@ -4,7 +4,7 @@ import utilsStyles from '@/styles/utils.module.css'
 import styles from './Destination.module.css'
 import Background from '@/components/background'
 import DestinationCard from '@/components/destinationCard'
-import type { NextPageWithTitle } from '../_app'
+import type { NextPageWithMeta } from '../_app'
 import { capitalize } from '@/utils/capitalize'
 import useActiveTabMark from '@/hooks/useActiveTabMark'
 import useSpacetourismData from '@/hooks/useSpaceTourismData'
@@ -17,7 +17,7 @@ type DestinationStates = {
 
 const destinies = ['moon', 'mars', 'europa', 'titan']
 
-const Destination: NextPageWithTitle = () => {
+const Destination: NextPageWithMeta = () => {
   const [currentDestiny, setCurrentDestiny] =
     useState<DestinationStates['currentDestiny']>('moon')
 
@@ -130,6 +130,7 @@ const Destination: NextPageWithTitle = () => {
 }
 
 Destination.title = 'Destination'
+Destination.pageName = 'destination'
 
 function confirmDestinyType(destiny: string): destiny is Destiny {
   return destinies.includes(destiny)
