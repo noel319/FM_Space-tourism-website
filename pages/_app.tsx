@@ -4,20 +4,19 @@ import type { AppProps } from 'next/app'
 import Layout from '@/components/layout'
 import { confirmTabType } from '@/components/nav'
 
-type NextPageWithTitle = NextPage & {
+type NextPageWithMeta = NextPage & {
+  pageName: string
   title?: string
 }
 
-type AppPropsWithTitle = AppProps & {
-  Component: NextPageWithTitle
+type AppPropsWithMeta = AppProps & {
+  Component: NextPageWithMeta
 }
 
-function MyApp({ Component, pageProps }: AppPropsWithTitle) {
-  const componentName = Component.name.toLowerCase()
-
+function MyApp({ Component, pageProps }: AppPropsWithMeta) {
   return (
     <Layout
-      pageName={confirmTabType(componentName) ? componentName : 'home'}
+      pageName={confirmTabType(Component.pageName) ? Component.pageName : 'home'}
       title={Component.title}
     >
       <Component {...pageProps} />
@@ -26,4 +25,4 @@ function MyApp({ Component, pageProps }: AppPropsWithTitle) {
 }
 
 export default MyApp
-export { type NextPageWithTitle }
+export { type NextPageWithMeta }
